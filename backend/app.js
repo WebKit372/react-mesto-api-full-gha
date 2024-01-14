@@ -17,8 +17,8 @@ const { PORT = 3000, DB_PATH = 'mongodb://127.0.0.1:27017/mestodb' } = process.e
 app.use(cors({
   origin: [
     'localhost:3000',
-    'https://api.webkit15pr.nomoredomainsmonster.ru',
-    'http://api.webkit15pr.nomoredomainsmonster.ru',
+    'http://webkit15pr.nomoredomainsmonster.ru',
+    'https://webkit15pr.nomoredomainsmonster.ru',
     'http://localhost:3000',
     'https://localhost:3000',
   ],
