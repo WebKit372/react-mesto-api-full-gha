@@ -14,10 +14,6 @@ require('dotenv').config();
 
 const app = express();
 const { PORT = 3000, DB_PATH = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
-mongoose.connect(DB_PATH);
-app.use(express.json());
-app.use(cookieParser());
-app.use(requestLogger);
 app.use(cors({
   origin: [
     'localhost:3000',
@@ -28,6 +24,10 @@ app.use(cors({
   ],
   credentials: true,
 }));
+mongoose.connect(DB_PATH);
+app.use(express.json());
+app.use(cookieParser());
+app.use(requestLogger);
 app.post('/signup', signupValidation, createUser);
 app.post('/signin', signinValidation, login);
 app.use(auth);
