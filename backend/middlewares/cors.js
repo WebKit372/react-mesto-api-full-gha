@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
     const requestHeaders = req.headers['Access-Control-Request-Headers'];
     if (method === 'OPTIONS') {
-      res.header('Access-Control-Allow-Methods', requestHeaders);
+      res.header('Access-Control-Allow-Headers', requestHeaders);
       res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
       return res.end();
     }
