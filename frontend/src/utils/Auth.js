@@ -17,6 +17,7 @@ class Authentification{
       headers:{
         "Content-Type" : "application/json"
       },
+      credentials: "include",
       body:JSON.stringify({
         "password":password,
         "email":email
@@ -43,7 +44,7 @@ class Authentification{
         "Content-Type" : "application/json",
         // "Authorization": `Bearer ${JWT}`
       },
-      credentials: 'include',
+      credentials: "include",
     })
     .then(res=> this._getJSON(res))
   }
