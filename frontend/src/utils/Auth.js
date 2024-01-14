@@ -43,6 +43,7 @@ class Authentification{
         "Content-Type" : "application/json",
         "Authorization": `Bearer ${JWT}`
       },
+      credentials: 'include',
     })
     .then(res=> this._getJSON(res))
   }
