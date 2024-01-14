@@ -6,7 +6,7 @@ const DeleteError = require('../errors/delete-err');
 
 module.exports.getCards = (req, res, next) => {
   Cards.find({})
-    .then((cards) => res.send({ data: cards }))
+    .then((cards) => res.send({ cards }))
     .catch(next);
 };
 module.exports.createCard = (req, res, next) => {
