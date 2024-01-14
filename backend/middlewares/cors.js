@@ -2,6 +2,8 @@ const allowedCors = [
   'localhost:3000',
   'https://api.webkit15pr.nomoredomainsmonster.ru',
   'http://api.webkit15pr.nomoredomainsmonster.ru',
+  'http://localhost:3000/',
+  'https://localhost:3000',
 ];
 module.exports = (req, res, next) => {
   const { method } = req;
