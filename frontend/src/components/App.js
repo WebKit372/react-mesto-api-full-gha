@@ -156,11 +156,12 @@ function App() {
     function login(email,password){
         Authorization.login(email,password)
         .then(res=>{
-            if(res.token){
+            console.log(res);
+            if(res.messagwe){
                 authorize()
                 navigate('/',{replace:true})
                 updateHeaderEmail(email)
-                localStorage.setItem('token',res.token)
+                localStorage.setItem('token',res._id)
             }
         })
         .catch(err =>{

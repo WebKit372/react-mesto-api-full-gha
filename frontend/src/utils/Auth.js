@@ -20,8 +20,7 @@ class Authentification{
       body:JSON.stringify({
         "password":password,
         "email":email
-      }),
-      credentials: 'include',
+      })
     })
     .then(res=> this._getJSON(res))
   }
