@@ -20,7 +20,8 @@ class Authentification{
       body:JSON.stringify({
         "password":password,
         "email":email
-      })
+      }),
+      credentials: 'include',
     })
     .then(res=> this._getJSON(res))
   }
@@ -39,10 +40,10 @@ class Authentification{
   }
   loginViaToken(JWT){
     return fetch(`${this.URL}/users/me`,{
-      headers:{
-        "Content-Type" : "application/json",
-        "Authorization": `Bearer ${JWT}`
-      },
+      // headers:{
+      //   "Content-Type" : "application/json",
+      //   "Authorization": `Bearer ${JWT}`
+      // },
       credentials: 'include',
     })
     .then(res=> this._getJSON(res))
