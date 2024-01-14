@@ -7,7 +7,7 @@ class Api {
     }
     _getJSON(res){
         if(res.ok){
-            return res.json()
+            return res.json() 
         }
         else{
             return Promise.reject(res.status)
@@ -86,7 +86,6 @@ class Api {
         }
       })
       .then((res)=>{
-        console.log("Добавил лайк")
         return this._getJSON(res);
       })
     }
@@ -98,7 +97,6 @@ class Api {
         }
       })
       .then((res)=>{
-        console.log("Снял лайк")
         return this._getJSON(res);
     })
     }

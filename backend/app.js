@@ -8,6 +8,7 @@ const errorCatcher = require('./middlewares/errorCatcher');
 const NotFoundError = require('./errors/not-found-err');
 const { signupValidation, signinValidation } = require('./utils/validationConfig');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,7 @@ mongoose.connect(DB_PATH);
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
+app.use(cors);
 app.post('/signup', signupValidation, createUser);
 app.post('/signin', signinValidation, login);
 app.use(auth);
