@@ -16,5 +16,8 @@ module.exports = (req, res, next) => {
       return res.end();
     }
   }
+  else {
+    res.send({ message: 'Привет' });
+  }
   return next();
 };
