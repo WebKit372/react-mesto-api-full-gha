@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
     if (method === 'OPTIONS') {
       res.header('Access-Control-Allow-Methods', requestHeaders);
-      return res.send();
+      return res.end();
     }
   }
   return next();

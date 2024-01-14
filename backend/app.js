@@ -25,7 +25,10 @@ app.use(auth);
 app.use('/', require('./routes'));
 
 app.use('/*', (req, res, next) => {
-  next(new NotFoundError('Некорректный путь'));
+  if (req.method === 'OPTIONS') {
+    return next();
+  }
+  return next(new NotFoundError('Некорректный путь'));
 });
 app.use(errorLogger);
 app.use(errors());
