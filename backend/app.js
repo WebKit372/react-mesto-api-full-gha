@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const errorCatcher = require('./middlewares/errorCatcher');
 const NotFoundError = require('./errors/not-found-err');
 const { signupValidation, signinValidation } = require('./utils/validationConfig');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
+
 require('dotenv').config();
 
 const app = express();
@@ -17,7 +18,16 @@ mongoose.connect(DB_PATH);
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
-app.use(cors);
+app.use(cors({
+  origin: [
+    'localhost:3000',
+    'https://api.webkit15pr.nomoredomainsmonster.ru',
+    'http://api.webkit15pr.nomoredomainsmonster.ru',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  credentials: true,
+}));
 app.post('/signup', signupValidation, createUser);
 app.post('/signin', signinValidation, login);
 app.use(auth);

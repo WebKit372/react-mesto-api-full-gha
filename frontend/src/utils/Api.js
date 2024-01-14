@@ -25,9 +25,9 @@ class Api {
     }
     getMyInfo(){
         return fetch(this._URL,{
-            headers:{
-                authorization:this._token
-            },
+            // headers:{
+            //     authorization:this._token
+            // },
             credentials: 'include',
             })
         .then((res)=> {
@@ -36,9 +36,9 @@ class Api {
     }
     getInitialCards() {
       return fetch(`${this._URL}/cards`,{
-        headers:{
-          authorization:this._token
-        },
+        // headers:{
+        //   authorization:this._token
+        // },
         credentials: 'include',
       })
       .then((res)=>{
@@ -47,9 +47,9 @@ class Api {
     }
     getProfileInfo(){
         return fetch(`${this._URL}/users/me`,{
-            headers:{
-                authorization:this._token
-            },
+            // headers:{
+            //     authorization:this._token
+            // },
             credentials: 'include', 
         })
         .then((res)=>{

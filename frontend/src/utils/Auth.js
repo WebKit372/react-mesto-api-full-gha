@@ -37,12 +37,12 @@ class Authentification{
     })
     .then(res=> this._getJSON(res))
   }
-  loginViaToken(JWT){
+  loginViaToken(){
     return fetch(`${this.URL}/users/me`,{
-      // headers:{
-      //   "Content-Type" : "application/json",
-      //   "Authorization": `Bearer ${JWT}`
-      // },
+      headers:{
+        "Content-Type" : "application/json",
+        // "Authorization": `Bearer ${JWT}`
+      },
       credentials: 'include',
     })
     .then(res=> this._getJSON(res))

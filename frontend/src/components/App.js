@@ -157,11 +157,11 @@ function App() {
         Authorization.login(email,password)
         .then(res=>{
             console.log(res);
-            if(res.messagwe){
+            if(res.data){
                 authorize()
                 navigate('/',{replace:true})
                 updateHeaderEmail(email)
-                localStorage.setItem('token',res._id)
+                localStorage.setItem('token',res.data._id)
             }
         })
         .catch(err =>{
@@ -175,8 +175,7 @@ function App() {
 
     function tokenCheck(){
         if(localStorage.getItem('token')){
-            const token = localStorage.getItem('token');
-            Authorization.loginViaToken(token)
+            Authorization.loginViaToken()
             .then(res=>{
                 setLoggedIn(true);
                 setEmail(res.data.email);
