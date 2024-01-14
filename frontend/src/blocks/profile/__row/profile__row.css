@@ -1,0 +1,11 @@
+.profile__row{
+    display: flex;
+    align-items: flex-end;
+}
+@media screen and (max-width: 1080px){
+    .profile__row{
+        padding-left: 28px;
+        justify-content: center;
+        margin-top: 26px;
+    }
+}

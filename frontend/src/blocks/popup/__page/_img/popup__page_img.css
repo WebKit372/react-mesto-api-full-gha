@@ -1,0 +1,15 @@
+.popup__page_img{
+    box-sizing: border-box;
+    position: relative;
+    min-width: 0;
+    background-color:rgba(0,0,0,0);
+    padding: 0;
+    border-radius: 0;
+}
+@media screen and (max-width: 768px){
+    .popup__page_img{
+        padding: 0;
+        width: auto;
+        min-width: 0;
+    }
+}

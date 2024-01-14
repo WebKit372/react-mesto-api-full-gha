@@ -1,0 +1,9 @@
+.profile__logo{
+    margin: auto;
+}
+@media screen and (max-width: 320px){
+    .profile__logo{
+        max-width: 7.5px;
+        max-height: 7.5px;
+    }
+}

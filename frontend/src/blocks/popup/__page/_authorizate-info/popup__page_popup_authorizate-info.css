@@ -1,0 +1,6 @@
+.popup__page_popup_authorizate-info{
+  display: flex;
+  flex-direction: column;
+  padding: 60px 30px;
+  width: 430px;
+}

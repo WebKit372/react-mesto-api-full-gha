@@ -1,0 +1,9 @@
+.profile__add-logo{
+    margin: auto;
+}
+@media screen and (max-width: 320px){
+    .profile__add-logo{
+        max-width: 16px;
+        max-height: 16px;
+    }
+}

@@ -1,0 +1,6 @@
+.popup_img{
+    background-color: rgba(0,0,0,.9);
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}

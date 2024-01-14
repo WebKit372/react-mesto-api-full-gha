@@ -1,0 +1,5 @@
+.popup__info-icon{
+  object-fit: none;
+  align-self: baseline;
+  margin: auto;
+}

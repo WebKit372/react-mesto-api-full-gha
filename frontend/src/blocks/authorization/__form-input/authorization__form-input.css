@@ -1,0 +1,16 @@
+.authorization__form-input{
+  margin: 0;
+  color: white;
+  background-color: black;
+  width: 358px;
+  border: none;
+  padding: 0 0 7.5px 0;
+  border-bottom: 2px solid #CCCCCC;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+.authorization__form-input:focus{
+  outline: none;
+}

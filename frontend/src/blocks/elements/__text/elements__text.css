@@ -1,0 +1,12 @@
+.elements__text{
+    margin: 25px 0 31px 21px;
+    line-height: 29.05px;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 70%;
+}
