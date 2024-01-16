@@ -188,6 +188,7 @@ function App() {
     }
     function logOut(){
         localStorage.removeItem('token');
+        document.cookie('jwt',"", -1);
         navigate('/sign-in',{replace:true})
     }
   return (  
