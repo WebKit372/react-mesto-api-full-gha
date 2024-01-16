@@ -89,12 +89,12 @@ function App() {
     function handleCardDelete(card){
         apiInfo.deleteCard(card._id)
         .then(()=>{
-            setCards((state)=> state.filter(i => i._id !== card._id))
+            setCards((state)=> state.filter(i => i !== card._id))
         })
         .catch(err=> console.log(err))
     }
     function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id === currentUser._id);
+        const isLiked = card.likes.some(i => i === currentUser._id);
         console.log(isLiked);
         console.log(currentUser._id);
         apiInfo.changeLike(card._id, isLiked).then((newCard) => {
