@@ -10,13 +10,13 @@ require('dotenv').config();
 const { JWT_SECRET = 'secret' } = process.env;
 module.exports.getUsers = (req, res, next) => {
   Users.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch(next);
 };
 module.exports.getUsersId = (req, res, next) => {
   Users.findById(req.params.id)
     .orFail(() => new NotFoundError(errorStatus.notFoundUser))
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new ValidationError(errorStatus.castError));
@@ -44,7 +44,7 @@ module.exports.createUser = (req, res, next) => {
     .then((user) => {
       const newUser = user.toObject();
       delete newUser.password;
-      res.status(201).send({ data: newUser });
+      res.status(201).send(newUser);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -69,7 +69,7 @@ module.exports.updateUser = (req, res, next) => {
       runValidators: true,
     },
   )
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError(errorStatus.validationError));
@@ -90,7 +90,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
       runValidators: true,
     },
   )
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError(errorStatus.validationError));

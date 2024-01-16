@@ -12,7 +12,7 @@ module.exports.getCards = (req, res, next) => {
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Cards.create({ name, link, owner: req.user._id })
-    .then((card) => res.status(201).send({ data: card }))
+    .then((card) => res.status(201).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError(errorStatus.validationError));
@@ -29,7 +29,7 @@ module.exports.deleteCard = (req, res, next) => {
         throw new DeleteError('Недостаточно прав');
       } else {
         deletedCard.deleteOne()
-          .then(res.send({ data: deletedCard }));
+          .then(res.send(deletedCard));
       }
     })
     .catch((err) => {
@@ -45,7 +45,7 @@ module.exports.likeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(() => new NotFoundError('Карточка не найдена'))
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new ValidationError(errorStatus.castError));
@@ -61,7 +61,7 @@ module.exports.dislikeCard = (req, res, next) => {
     { new: true },
   )
     .orFail(() => new NotFoundError('Карточка не найдена'))
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new ValidationError(errorStatus.castError));
