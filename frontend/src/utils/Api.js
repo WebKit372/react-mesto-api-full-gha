@@ -61,9 +61,10 @@ class Api {
         return fetch(`${this._URL}/users/me`,{
             method:'PATCH',
             headers:{
-                authorization:this._token,
+                // authorization:this._token,
                 "Content-Type":'application/json'
             },
+            credentials: 'include', 
             body:JSON.stringify({
                 name:userInfo.name,
                 about:userInfo.hobby
@@ -75,9 +76,10 @@ class Api {
       return fetch(`${this._URL}/users/me/avatar`,{
         method:'PATCH',
         headers:{
-            authorization:this._token,
+            // authorization:this._token,
             "Content-Type":'application/json'
         },
+        credentials: 'include', 
         body:JSON.stringify({
           avatar:URL
         })
@@ -87,9 +89,10 @@ class Api {
     addLike(cardId){
       return fetch(`${this._URL}/cards/${cardId}/likes`,{
         method: "PUT",
-        headers:{
-          authorization:this._token
-        }
+        credentials: 'include', 
+        // headers:{
+        //   authorization:this._token
+        // }
       })
       .then((res)=>{
         return this._getJSON(res);
@@ -98,9 +101,10 @@ class Api {
     deleteLike(cardId){
       return fetch(`${this._URL}/cards/${cardId}/likes`,{
         method: "DELETE",
-        headers:{
-          authorization:this._token
-        }
+        credentials: 'include', 
+        // headers:{
+        //   authorization:this._token
+        // }
       })
       .then((res)=>{
         return this._getJSON(res);
@@ -118,9 +122,10 @@ class Api {
         return fetch(`${this._URL}/cards`,{
             method: "POST",
             headers: {
-                authorization:this._token,
+                // authorization:this._token,
                 "Content-type":"application/json"        
             },
+            credentials: 'include', 
             body: JSON.stringify({
                 name: cardInfo.name,
                 link: cardInfo.link
