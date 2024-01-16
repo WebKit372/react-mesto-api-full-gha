@@ -16,8 +16,9 @@ class Api {
     deleteCard(cardId){
       return fetch(`${this._URL}/cards/${cardId}`,{
         method:"DELETE",
-        headers:{
-            authorization:this._token}
+        credentials: 'include',
+        // headers:{
+        //     authorization:this._token}
         })
         .then((res)=> {
           return this._getJSON(res)
