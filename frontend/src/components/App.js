@@ -161,7 +161,7 @@ function App() {
                 authorize()
                 navigate('/',{replace:true})
                 updateHeaderEmail(email)
-                localStorage.setItem('token',res.data._id)
+                localStorage.setItem('token',res._id)
             }
         })
         .catch(err =>{
@@ -178,7 +178,7 @@ function App() {
             Authorization.loginViaToken()
             .then(res=>{
                 setLoggedIn(true);
-                setEmail(res.data.email);
+                setEmail(res.email);
                 navigate('/',{replace:true});
             })
             .catch(err=>{

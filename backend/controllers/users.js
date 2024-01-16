@@ -112,12 +112,12 @@ module.exports.login = (req, res, next) => {
           httpOnly: true,
           sameSite: true,
         })
-        .send({ data: newUser });
+        .send(newUser);
     })
     .catch(next);
 };
 module.exports.me = (req, res, next) => {
   Users.findById(req.user._id)
-    .then((user) => res.send({ user }))
+    .then((user) => res.send(user))
     .catch(next);
 };
