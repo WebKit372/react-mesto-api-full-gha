@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.138.17
 
-Frontend https://...
+Frontend https://webkit15pr.nomoredomainsmonster.ru/
 
-Backend https://...
+Backend https://api.webkit15pr.nomoredomainsmonster.ru/

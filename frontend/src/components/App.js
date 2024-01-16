@@ -40,7 +40,7 @@ function App() {
             Promise.all([apiInfo.getProfileInfo(),apiInfo.getInitialCards()])
             .then((result)=>{
                 setcurrentUser(result[0])
-                setCards(result[1])
+                setCards(result[1].reverse())
             })
             .catch(err=>console.log(err))
         }
