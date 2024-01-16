@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
@@ -9,8 +10,6 @@ const errorCatcher = require('./middlewares/errorCatcher');
 const NotFoundError = require('./errors/not-found-err');
 const { signupValidation, signinValidation } = require('./utils/validationConfig');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
-
-require('dotenv').config();
 
 const app = express();
 const { PORT = 3000, DB_PATH = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;

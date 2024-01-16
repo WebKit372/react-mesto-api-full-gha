@@ -8,6 +8,7 @@ const UniqueError = require('../errors/unique-err');
 require('dotenv').config();
 
 const { JWT_SECRET = 'secret' } = process.env;
+const { NODE_ENV = 'dev' } = process.env;
 module.exports.getUsers = (req, res, next) => {
   Users.find({})
     .then((users) => res.send(users))
@@ -105,7 +106,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const newUser = user.toObject();
       delete newUser.password;
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
       res
         .cookie('jwt', token, {
           maxAge: 3600000,
