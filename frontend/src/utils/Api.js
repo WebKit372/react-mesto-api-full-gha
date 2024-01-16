@@ -133,6 +133,19 @@ class Api {
         })
         .then(res=> {return this._getJSON(res)})
     }
+    logOut(currentUser){
+      return fetch(`${this._URL}/users/log-out`, {
+        method: "GET",
+        headers: {
+          "Content-type":"application/json"  
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          _id: currentUser._id,
+        })
+      })
+      .then(res => {return this._getJSON(res)})
+    }
     // другие методы работы с API
   }
 const apiInfo = new Api(apiOptions)

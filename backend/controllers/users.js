@@ -121,3 +121,9 @@ module.exports.me = (req, res, next) => {
     .then((user) => res.send(user))
     .catch(next);
 };
+module.exports.logout = (req, res, next) => {
+  Users.findById(req._id)
+    .orFail(() => new NotFoundError(errorStatus.notFoundUser))
+    .then(() => res.clearCookie('jwt').send({ message: 'Вы разлогинились' }))
+    .catch(next);
+};
