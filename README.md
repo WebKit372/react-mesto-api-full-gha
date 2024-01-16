@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.138.17
+IP 158.160.138.17
 
 Frontend https://webkit15pr.nomoredomainsmonster.ru/
 
