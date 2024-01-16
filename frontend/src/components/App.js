@@ -89,7 +89,7 @@ function App() {
     function handleCardDelete(card){
         apiInfo.deleteCard(card._id)
         .then(()=>{
-            setCards((state)=> state.filter(i => i !== card._id))
+            setCards((state)=> state.filter(i => i._id !== card._id))
         })
         .catch(err=> console.log(err))
     }
