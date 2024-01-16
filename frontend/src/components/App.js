@@ -156,8 +156,7 @@ function App() {
     function login(email,password){
         Authorization.login(email,password)
         .then(res=>{
-            console.log(res);
-            if(res.data){
+            if(res._id){
                 authorize()
                 navigate('/',{replace:true})
                 updateHeaderEmail(email)
